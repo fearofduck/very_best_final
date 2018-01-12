@@ -8,6 +8,10 @@ class Venue < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :categories,
+             :through => :user_bookmarks,
+             :source => :category
+
   # Validations
 
 end
