@@ -48,8 +48,6 @@ class DishesController < ApplicationController
 
   def update
     @dish = Dish.find(params[:id])
-
-    @dish.user_id = params[:user_id]
     @dish.venues_id = params[:venues_id]
     @dish.category_id = params[:category_id]
 
