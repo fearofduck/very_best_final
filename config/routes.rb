@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "venues#index"
   # Routes for the Category_id resource:
   # CREATE
   get "/category_ids/new", :controller => "category_ids", :action => "new"
