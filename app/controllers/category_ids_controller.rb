@@ -1,6 +1,6 @@
 class CategoryIdsController < ApplicationController
   def index
-    @category_ids = CategoryId.all
+    @category_ids = CategoryId.page(params[:page]).per(10)
 
     render("category_ids/index.html.erb")
   end
