@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Category_id resource:
+  # CREATE
+  get "/category_ids/new", :controller => "category_ids", :action => "new"
+  post "/create_category_id", :controller => "category_ids", :action => "create"
+
+  # READ
+  get "/category_ids", :controller => "category_ids", :action => "index"
+  get "/category_ids/:id", :controller => "category_ids", :action => "show"
+
+  # UPDATE
+  get "/category_ids/:id/edit", :controller => "category_ids", :action => "edit"
+  post "/update_category_id/:id", :controller => "category_ids", :action => "update"
+
+  # DELETE
+  get "/delete_category_id/:id", :controller => "category_ids", :action => "destroy"
+  #------------------------------
+
   # Routes for the Dish resource:
   # CREATE
   get "/dishes/new", :controller => "dishes", :action => "new"
