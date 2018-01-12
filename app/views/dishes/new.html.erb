@@ -42,7 +42,7 @@
           Category
         </label>
 
-        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @dish.category_id %>">
+        <%= select_tag(:category_id, options_from_collection_for_select(CategoryId.all, :id, :name, @dish.category_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
