@@ -17,9 +17,27 @@
 
       <% @dishes.each do |dish| %>
       <tr>
-        <td><%= dish.user.email %></td>
-        <td><%= dish.venues.neighborhood %></td>
-        <td><%= dish.category.name %></td>
+        <td>
+          <% if dish.user.present? %>
+            <a href="/users/<%= dish.user.id %>">
+              <%= dish.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if dish.venues.present? %>
+            <a href="/venues/<%= dish.venues.id %>">
+              <%= dish.venues.neighborhood %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if dish.category.present? %>
+            <a href="/category_ids/<%= dish.category.id %>">
+              <%= dish.category.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/dishes/<%= dish.id %>" class="btn btn-primary">Show</a>
           
