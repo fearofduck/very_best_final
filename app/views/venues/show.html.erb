@@ -57,6 +57,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_dish" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for venues_id -->
+      <div class="form-group">
+        <label for="venues_id" class="control-label">
+          Venues
+        </label>
+
+        <%= select_tag(:venues_id, options_from_collection_for_select(Venue.all, :id, :neighborhood), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <%= select_tag(:category_id, options_from_collection_for_select(CategoryId.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Dish
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

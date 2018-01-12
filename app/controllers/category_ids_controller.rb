@@ -6,6 +6,7 @@ class CategoryIdsController < ApplicationController
   end
 
   def show
+    @dish = Dish.new
     @category_id = CategoryId.find(params[:id])
 
     render("category_ids/show.html.erb")
