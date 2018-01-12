@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Venue has many user_bookmarks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Bookmarks
+      </li>
+
+      <% @venue.user_bookmarks.each do |dish| %>
+        <li class="list-group-item">
+          <a href="/dishes/<%= dish.id %>">
+            <%= dish.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_dish/<%= dish.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Venue has many categories -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Categories
+      </li>
+
+      <% @venue.categories.each do |category_id| %>
+        <li class="list-group-item">
+          <a href="/category_ids/<%= category_id.id %>">
+            <%= category_id.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/category_ids/<%= category_id.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/category_ids/<%= category_id.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_category_id/<%= category_id.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
